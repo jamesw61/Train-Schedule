@@ -1,0 +1,14 @@
+td, th {
+	text-align: center;
+	border-style: solid;
+	min-width: 200px;
+	border-color: grey;
+}
+
+.container-fluid {
+
+}
+
+.jumbotron {
+
+}
