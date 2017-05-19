@@ -8,37 +8,38 @@
   };
   firebase.initializeApp(config);
   var database = firebase.database();
+
   var now = moment().format('MMMM Do YYYY, HH:mm');
-  console.log(now);
-  
-  
   var trainName = "";
   var destination = "";
-  var trainTime = "13:25";
+  var trainTime = "01:00";
   var rowCount = 1;
-  
-  // console.log(now);
-  // console.log(trainTime);
-  var frequency = 0;
+  var frequency = 10;
 
-
-
-var diff = moment.utc(moment(trainTime,"HH:mm").diff(moment(now,"HH:mm"))).format("HH:mm");
-console.log(diff);
-
-
+function calculateTimeTilArrival () {
+	var diff = moment.utc(moment(now,"HH:mm").diff(moment(trainTime,"HH:mm"))).format("HH:mm");
+	var tempTime = moment.duration(diff);
+	var y = tempTime.hours();
+	var z = tempTime.minutes();
+	var totalMinutes = (y*60) + z;
+	var modMinutes = totalMinutes%frequency;
+	var nextArrival = frequency - modMinutes;
+	if (modMinutes === 0){
+		nextArrival = "Arrived";
+	}
+	return nextArrival;
+}
  
 
-  $('#now').html(now);
+$('#now').html(now);
 
 $("#submitButton").on("click", function() {
-      // event.preventDefault();
       
       trainName = $("#trainName").val().trim();
       destination = $("#destination").val().trim();
       trainTime = $("#trainTime").val().trim();
       frequency = $("#frequency").val().trim();
-      now = moment().format('MMMM Do YYYY, h:mm:ss a');
+      now = moment().format('MMMM Do YYYY, HH:mm');
       $('#now').html(now);
       database.ref().push({
         trainName: trainName,
@@ -47,44 +48,31 @@ $("#submitButton").on("click", function() {
         frequency: frequency
       });
       $('input').val("");
-
-
     });
 
 
 database.ref().on("child_added", function(snapshot,) {
   var newPost = snapshot.val();
-  console.log("trainName retrieved: " + newPost.trainName);
-  console.log("destination retrieved: " + newPost.destination);
-  console.log("frequency: " + newPost.frequency);
+  trainTime = newPost.trainTime;
+  frequency = newPost.frequency;
+
   var newRow = $("<tr></tr>");
   var nameCell = $("<td></td");
   var destCell = $("<td></td");
   var freqCell = $("<td></td");
   var nextCell = $("<td></td");
   var minCell = $("<td></td");
+
   nameCell.html(newPost.trainName);  
   destCell.html(newPost.destination);
   freqCell.html(newPost.frequency);
-  newRow.append(nameCell).append(destCell).append(freqCell);
+  nextCell.html("xx");
+
+  nextArrival = calculateTimeTilArrival();  
+  minCell.html(nextArrival);
+
+  newRow.append(nameCell).append(destCell).append(freqCell).append(nextCell).append(minCell);
   $('#trainTable > tbody:last-child').append(newRow);
 
-
-
-
-  // var newData = $("<h3></h3>");
-  // newData.html("Train:  " + newPost.trainName + "  destination:  " + newPost.destination);
-  // $('#test2').append(newData);
 });
 
-
-
-// database.ref().on("value", function(snapshot) {
-// 		// console.log(snapshot.val());
-//       $("#one").html(snapshot.val().trainName);
-//       $("#two").html(snapshot.val().destination);
-//       $("#four").html(snapshot.val().trainTime);
-//       $("#three").html(snapshot.val().frequency);
-//     }, function(errorObject) {
-//       console.log("Errors handled: " + errorObject.code);
-//     });
