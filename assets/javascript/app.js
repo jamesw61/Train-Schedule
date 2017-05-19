@@ -7,13 +7,14 @@
     messagingSenderId: "724409226390"
   };
   firebase.initializeApp(config);
+
   var database = firebase.database();
 
   var now = moment().format('MMMM Do YYYY, HH:mm');
   var trainName = "";
   var destination = "";
   var trainTime = "01:00";
-  var rowCount = 1;
+
   var frequency = 10;
 
 function calculateTimeTilArrival () {
@@ -51,7 +52,7 @@ $("#submitButton").on("click", function() {
     });
 
 
-database.ref().on("child_added", function(snapshot,) {
+database.ref().on("child_added", function(snapshot) {
   var newPost = snapshot.val();
   trainTime = newPost.trainTime;
   frequency = newPost.frequency;

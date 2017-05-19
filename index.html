@@ -13,16 +13,22 @@
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="jumbotron text-center">
+			<div class="col-lg-4"></div>
+			<div class="col-lg-4">
+				<div class="jumbotron text-center">
 				<h1>Train Scheduler</h1>
 				<h3 id="now"></h3>
+				</div>
 			</div>
+			<div class="col-lg-2"></div>
 		</div>
 		<div class="row">
+			<div class="col-lg-2"></div>
+			<div class="col-lg-8">
 			<div class="panel panel-default">
 				<div class="panel-heading">Current Train Schedule</div>
   					<div id="test2" class="panel-body">
-    					<table id="trainTable">
+    					<table id="trainTable" align="center">
 						  <tr>
 						    <th class="text-center">Train Name</th>
 						    <th class="text-center">Destination</th>
@@ -34,8 +40,31 @@
 
   					</div>
 			</div>
+			</div>
+			<div class="col-lg-1"></div>
+			<!-- <div class="col-lg-3">
+				<div class="panel panel-default">
+				<div class="panel-heading">Add Train</div>
+  					<div class="panel-body">
+  						<label for="trainName">Train Name</label><br>
+    					<input type="text" id="trainName"><br>
+    					<label for="destination">Destination</label><br>
+						<input type="text" id="destination"><br>
+						<label for="trainTime">First Train Time (HH:mm - military time) </label><br>
+						<input type="text" id="trainTime"><br>
+						<label for="frequency">Frequency (min)</label><br>
+						<input type="text" id="frequency"><br>
+						<button type="button" id="submitButton">Submit</button>
+
+  					</div>
+			</div> -->
+
+
+			</div>
 		</div>
 		<div class="row">
+			<div class="col-lg-4"></div>
+			<div class="col-lg-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">Add Train</div>
   					<div class="panel-body">
@@ -50,8 +79,9 @@
 						<button type="button" id="submitButton">Submit</button>
 
   					</div>
+				</div>
 			</div>
-		</div>
+		</div>	
 	</div>
 
 
