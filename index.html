@@ -21,8 +21,8 @@
 		<div class="row">
 			<div class="panel panel-default">
 				<div class="panel-heading">Current Train Schedule</div>
-  					<div class="panel-body">
-    					<table>
+  					<div id="test2" class="panel-body">
+    					<table id="trainTable">
 						  <tr>
 						    <th class="text-center">Train Name</th>
 						    <th class="text-center">Destination</th>
@@ -30,14 +30,8 @@
 						    <th class="text-center">Next Arrival</th>
 						    <th class="text-center">Minutes Away</th>
 						  </tr>
-						  <tr>
-						    <td id="one">trenton express</td>
-						    <td id="two">trenton</td>
-							<td id="three">25</td>
-							<td id="four">05:35 PM</td>
-							<td>10</td>
-						  </tr>
 						</table>
+
   					</div>
 			</div>
 		</div>
@@ -45,13 +39,13 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Add Train</div>
   					<div class="panel-body">
-  						<label for="trainName">Train Name</label>
+  						<label for="trainName">Train Name</label><br>
     					<input type="text" id="trainName"><br>
-    					<label for="destination">Destination</label>
+    					<label for="destination">Destination</label><br>
 						<input type="text" id="destination"><br>
-						<label for="trainTime">First Train Time</label>
+						<label for="trainTime">First Train Time (HH:mm - military time) </label><br>
 						<input type="text" id="trainTime"><br>
-						<label for="frequency">Frequency (min)</label>
+						<label for="frequency">Frequency (min)</label><br>
 						<input type="text" id="frequency"><br>
 						<button type="button" id="submitButton">Submit</button>
 
