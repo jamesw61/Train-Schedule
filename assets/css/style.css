@@ -1,44 +1,54 @@
-td, th {
-	text-align: center;
-	border-style: solid;
-	min-width: 200px;
-	border-color: grey;
+td,
+th {
+    text-align: center;
+    border-style: solid;
+    min-width: 200px;
+    border-color: grey;
 }
 
-.jumbotron {		
-	font-family: georgia;
-	background-color:rgba(0, 0, 0, 0.7);
-	color: white;
+.jumbotron {
+    /*font-family: georgia;*/
+    font-family: 'Old Standard TT', serif;
+    /*font-weight: bold;*/
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
 }
 
 body {
-	background-image: url('../images/antwerp.jpg');
-	background-size: cover;
-	background-color: #2c1235;
+    background-image: url('../images/antwerp.jpg');
+    background-size: cover;
+    background-color: black;
 }
 
 #submitButton {
-	margin: 10px;
-	margin-left: 0px;
+    margin: 10px;
+    margin-left: 0px;
 }
 
 .panel {
-	background-color:rgba(0, 0, 0, 0.7);
-	color: white;
-	font-size: 20px;
-	font-family: helvetica;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 20px;
+    font-family: helvetica;
 }
 
-.panel-default > .panel-heading {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+.panel-default > .panel-heading,
+form {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
-input, #submitButton {
-	color: black;
+input,
+#submitButton {
+    color: black;
 }
 
 table {
-	table-layout:fixed;
-    width:100%;
+    table-layout: fixed;
+    width: 100%;
+}
+
+form {
+    padding: 20px;
+    margin-top: 0;
 }
