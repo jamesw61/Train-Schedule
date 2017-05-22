@@ -1,3 +1,4 @@
+ $( document ).ready(function() {
   var config = {
       apiKey: "AIzaSyCRKdQPHdR5FR3XJUXwXhlNw7p6ylOsbz8",
       authDomain: "bacon-525e9.firebaseapp.com",
@@ -10,7 +11,7 @@
 
   var database = firebase.database();
 
-  var now = moment().format();
+  var now = moment().format('MMMM Do YYYY, HH:mm');
   var trainName = "";
   var destination = "";
   var trainTime = "01:00";
@@ -28,7 +29,6 @@
       }
       return [minTilArrival, arrivalTime];
   }
-
 
   $('#now').html(now);
 
@@ -75,3 +75,4 @@
       $('#trainTable > tbody:last-child').append(newRow);
 
   });
+});
